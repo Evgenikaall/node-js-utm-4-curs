@@ -1,0 +1,11 @@
+{
+  "name": "lab1_evgheni_dolomanji",
+  "version": "1.0.0",
+  "description": "Laboratory work 1: a simple HTTP server with Node.js",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Evgheni Dolomanji",
+  "license": "ISC"
+}

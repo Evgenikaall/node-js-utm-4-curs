@@ -1,0 +1,14 @@
+{
+  "name": "lab2_evgheni_dolomanji",
+  "version": "1.0.0",
+  "description": "Laboratory work 2: REST API with Express.js and MVC",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Evgheni Dolomanji",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
