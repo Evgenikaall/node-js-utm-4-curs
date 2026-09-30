@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+
+<section class="page-heading compact">
+    <div>
+        <p class="eyebrow">Карточка дисциплины</p>
+        <h1><%= course.title %></h1>
+    </div>
+    <a class="button button-secondary" href="/courses">← К списку курсов</a>
+</section>
+
+<article class="course-card">
+    <dl class="course-details">
+        <div><dt>Преподаватель</dt><dd><%= course.teacher %></dd></div>
+        <div><dt>Количество кредитов</dt><dd><%= course.credits %></dd></div>
+        <div><dt>Семестр</dt><dd><%= course.semester %></dd></div>
+        <div class="description"><dt>Описание</dt><dd><%= course.description %></dd></div>
+    </dl>
+    <div class="details-actions">
+        <a class="button button-edit" href="/courses/<%= course.id %>/edit">Редактировать</a>
+        <form action="/courses/<%= course.id %>/delete" method="POST" onsubmit="return confirm('Удалить этот курс?')">
+            <button class="button button-delete" type="submit">Удалить</button>
+        </form>
+    </div>
+</article>
+
+<%- include('../partials/footer') %>

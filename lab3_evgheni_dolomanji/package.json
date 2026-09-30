@@ -1,0 +1,15 @@
+{
+  "name": "lab3_evgheni_dolomanji",
+  "version": "1.0.0",
+  "description": "Laboratory work 3: course management system with Express and EJS",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Evgheni Dolomanji",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^6.0.1",
+    "express": "^5.2.1"
+  }
+}

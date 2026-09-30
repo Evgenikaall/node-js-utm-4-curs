@@ -1,0 +1,70 @@
+<%- include('../partials/header') %>
+
+<section class="page-heading">
+    <div>
+        <p class="eyebrow">Каталог дисциплин</p>
+        <h1>Учебные курсы</h1>
+        <p>Просматривайте, ищите и управляйте курсами.</p>
+    </div>
+    <a class="button button-primary" href="/courses/new">+ Добавить курс</a>
+</section>
+
+<form class="filter-form" action="/courses" method="GET">
+    <label>
+        Поиск по названию или преподавателю
+        <input type="search" name="search" value="<%= filters.search %>" placeholder="Например, Ivan или Web">
+    </label>
+    <label>
+        Семестр
+        <select name="semester">
+            <option value="">Все семестры</option>
+            <% for (let value = 1; value <= 8; value += 1) { %>
+                <option value="<%= value %>" <%= String(value) === filters.semester ? 'selected' : '' %>><%= value %></option>
+            <% } %>
+        </select>
+    </label>
+    <div class="filter-actions">
+        <button class="button button-primary" type="submit">Найти</button>
+        <a class="button button-secondary" href="/courses">Сбросить</a>
+    </div>
+</form>
+
+<% if (courses.length === 0) { %>
+    <div class="empty-state">
+        <h2>Курсы не найдены</h2>
+        <p>Попробуйте изменить условия поиска или добавьте новый курс.</p>
+    </div>
+<% } else { %>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Название</th>
+                    <th>Преподаватель</th>
+                    <th>Кредиты</th>
+                    <th>Семестр</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% courses.forEach((course) => { %>
+                    <tr>
+                        <td><strong><%= course.title %></strong></td>
+                        <td><%= course.teacher %></td>
+                        <td><%= course.credits %></td>
+                        <td><span class="semester-badge"><%= course.semester %></span></td>
+                        <td class="actions">
+                            <a class="button button-view" href="/courses/<%= course.id %>">Просмотр</a>
+                            <a class="button button-edit" href="/courses/<%= course.id %>/edit">Изменить</a>
+                            <form action="/courses/<%= course.id %>/delete" method="POST" onsubmit="return confirm('Удалить этот курс?')">
+                                <button class="button button-delete" type="submit">Удалить</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+<% } %>
+
+<%- include('../partials/footer') %>

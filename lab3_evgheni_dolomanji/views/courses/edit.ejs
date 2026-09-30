@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+
+<section class="page-heading compact">
+    <div>
+        <p class="eyebrow">Редактирование дисциплины</p>
+        <h1><%= course.title || 'Курс' %></h1>
+    </div>
+    <a class="button button-secondary" href="/courses/<%= course.id %>">Отмена</a>
+</section>
+
+<%- include('form', { course, errors, action: `/courses/${course.id}/edit`, submitLabel: 'Сохранить изменения' }) %>
+
+<%- include('../partials/footer') %>
