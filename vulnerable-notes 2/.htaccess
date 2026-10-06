@@ -1,0 +1,5 @@
+Options -Indexes
+
+<FilesMatch "^(config\.php|database\.sql|README\.md|LABORATORNAYA_RABOTA\.md)$">
+    Require all denied
+</FilesMatch>

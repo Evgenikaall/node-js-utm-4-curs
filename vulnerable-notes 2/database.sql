@@ -29,12 +29,11 @@ CREATE TABLE notes (
 );
 
 INSERT INTO users (name, email, password, role) VALUES
-('Администратор', 'admin@example.local', 'admin123', 'admin'),
-('Анна', 'anna@example.local', 'student123', 'user'),
-('Иван', 'ivan@example.local', 'student123', 'user');
+('Администратор', 'admin@example.local', '$2a$12$V3plJzOYbOgTZ0OehWbHg.zUZ8eGvfA77BlOjWKLKCZYGTGsXmhHu', 'admin'),
+('Анна', 'anna@example.local', '$2a$12$AHiTGudLt1ckjtRmcXPcCebiToRVhc7JmvKXQ2zus4NF9/83RhBN6', 'user'),
+('Иван', 'ivan@example.local', '$2a$12$lcMPh6lEP8Xez232up9uY.3lq2Wob84e44d7gnIZyYwHKlapZpNNy', 'user');
 
 INSERT INTO notes (user_id, title, content) VALUES
 (1, 'Системная заметка', 'Проверить права доступа к административной странице.'),
 (2, 'Личная заметка Анны', 'Эту запись не должен изменять другой пользователь.'),
 (3, 'Личная заметка Ивана', 'Проверить защиту от IDOR и XSS.');
-

@@ -1,0 +1,36 @@
+services:
+  db:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: vulnerable_notes
+      MYSQL_USER: notes_app
+      MYSQL_PASSWORD: notes_app_local_password
+      MYSQL_ROOT_PASSWORD: root_local_password
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database.sql:/docker-entrypoint-initdb.d/01-database.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -uroot -p$$MYSQL_ROOT_PASSWORD --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+
+  web:
+    build:
+      context: .
+    ports:
+      - "8080:80"
+    environment:
+      NOTES_DB_HOST: db
+      NOTES_DB_NAME: vulnerable_notes
+      NOTES_DB_USER: notes_app
+      NOTES_DB_PASSWORD: notes_app_local_password
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  mysql_data:
