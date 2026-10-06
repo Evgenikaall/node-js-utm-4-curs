@@ -1,0 +1,125 @@
+:root {
+    color-scheme: light;
+    font-family: Inter, Arial, sans-serif;
+    background: #f3f5f8;
+    color: #1e293b;
+}
+
+* { box-sizing: border-box; }
+
+body { margin: 0; }
+
+a { color: #2459d3; }
+
+.container,
+.card {
+    width: min(100% - 32px, 960px);
+    margin: 40px auto;
+}
+
+.card {
+    padding: 28px;
+    background: white;
+    border: 1px solid #d8dee8;
+    border-radius: 12px;
+    box-shadow: 0 8px 26px rgba(15, 23, 42, .08);
+}
+
+.narrow { max-width: 520px; }
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px 28px;
+    background: #172033;
+    color: white;
+}
+
+.topbar nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.topbar a { color: white; }
+
+form { display: grid; gap: 10px; }
+
+input,
+textarea,
+button,
+.button {
+    font: inherit;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #bcc6d5;
+    border-radius: 7px;
+}
+
+button,
+.button {
+    display: inline-block;
+    width: fit-content;
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 7px;
+    background: #2459d3;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.secondary { background: #64748b; }
+
+.warning,
+.message,
+.empty {
+    margin-bottom: 20px;
+    padding: 12px 14px;
+    border-radius: 7px;
+}
+
+.warning { background: #fff3cd; border: 1px solid #e6c96d; }
+.message { background: #e6f5ec; border: 1px solid #97d5af; }
+.error { background: #feecec; border-color: #ecaaaa; }
+.empty { background: white; border: 1px solid #d8dee8; }
+.muted { color: #64748b; }
+
+.notes { display: grid; gap: 16px; }
+
+.note {
+    padding: 20px;
+    background: white;
+    border: 1px solid #d8dee8;
+    border-radius: 10px;
+}
+
+.note h2 { margin-top: 0; }
+.note small { display: block; margin-top: 16px; color: #64748b; }
+.note-actions { display: flex; gap: 16px; margin-top: 12px; }
+.danger { color: #bd1e1e; }
+.actions { margin: 20px 0; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+th,
+td {
+    padding: 10px;
+    border: 1px solid #ccd4df;
+    text-align: left;
+}
+
+@media (max-width: 720px) {
+    .topbar { flex-direction: column; }
+    table { font-size: 13px; }
+}
+
